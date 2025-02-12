@@ -12,7 +12,19 @@ enum Abonnements {
     BAUCH_BEINE_PO("Bauch Beine Po", 15),
     CARDIO_MEETS_WELLNESS("Cardio meets Wellness", 15);
 
-    Abonnements(String bezeichnung, double preis) {
+    private String bezeichnung;
+    private double preis;
 
+    Abonnements(String bezeichnung, double preis) {
+        this.bezeichnung = bezeichnung;
+        this.preis = preis;
+    }
+
+    public String getBezeichnung(){
+        return this.bezeichnung;
+    }
+
+    public double getPreis(){
+        return this.preis;
     }
 }
