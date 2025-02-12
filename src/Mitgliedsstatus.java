@@ -1,2 +1,6 @@
-public class Mitgliedsstatus {
+enum Mitgliedsstatus {
+    AKTIV,
+    PASSIV,
+    EHEMALIG,
+    EHRENMITGLIED
 }

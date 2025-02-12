@@ -1,2 +1,5 @@
-public class Altersklasse {
+enum Altersklasse {
+    JUNG,
+    ERWACHSEN,
+    SENIOR
 }
