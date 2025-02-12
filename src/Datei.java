@@ -1,2 +1,2 @@
-public class Datei {
+public interface Datei {
 }
