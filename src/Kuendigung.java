@@ -1,9 +1,11 @@
+import java.time.LocalDate;
+
 public class Kuendigung extends Datei {
     private String mitgliedsnummer;
-    private String kuendigungsDatum;
+    private LocalDate kuendigungsDatum;
     private String kuendigungsnummer;
 
-    public Kuendigung(String mitgliedsnummer, String kuendigungsDatum, String kuendigungsnummer) {
+    public Kuendigung(String mitgliedsnummer, LocalDate kuendigungsDatum, String kuendigungsnummer) {
         this.mitgliedsnummer = mitgliedsnummer;
         this.kuendigungsDatum = kuendigungsDatum;
         this.kuendigungsnummer = kuendigungsnummer;
@@ -13,7 +15,7 @@ public class Kuendigung extends Datei {
         return mitgliedsnummer;
     }
 
-    public String getKuendigungsDatum() {
+    public LocalDate getKuendigungsDatum() {
         return kuendigungsDatum;
     }
 
@@ -25,7 +27,7 @@ public class Kuendigung extends Datei {
         this.mitgliedsnummer = mitgliedsnummer;
     }
 
-    public void setKuendigungsDatum(String kuendigungsDatum) {
+    public void setKuendigungsDatum(LocalDate kuendigungsDatum) {
         this.kuendigungsDatum = kuendigungsDatum;
     }
 
