@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Person {
+public abstract class Person {
     private String name;
     private LocalDate geburtsdatum;
 
