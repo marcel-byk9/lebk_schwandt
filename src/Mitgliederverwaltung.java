@@ -1,8 +1,11 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.UUID;
+import org.json.*;
 
 public class Mitgliederverwaltung {
     private final String DATEIPFAD = "./Mitglieder.json";
@@ -14,8 +17,19 @@ public class Mitgliederverwaltung {
     }
 
     public List<Mitglied> ladeMitglieder() {
-        File json_mitglieder = new File(DATEIPFAD);
         ArrayList<Mitglied> mitglieder = new ArrayList<>();
+        try {
+            File json_mitglieder = new File(DATEIPFAD);
+            Scanner sc = new Scanner(json_mitglieder);
+            StringBuilder json = new StringBuilder();
+            while (sc.hasNextLine()) {
+                json.append(sc.nextLine());
+            }
+            JSONObject obj = new JSONObject(json.toString());
+
+        } catch (FileNotFoundException fnfe) {
+            System.out.println(fnfe.getMessage());
+        }
     }
 
     public void erstelleRechnung(Mitglied mitglied, double rechnungsBetrag){
