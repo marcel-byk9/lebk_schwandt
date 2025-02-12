@@ -20,4 +20,38 @@ public class Rechnung extends Datei {
                 + "\nDatum: " + this.datum
                 + "\nBetrag: " + this.betrag;
     }
+
+    public String getMitgliedsnummer() {
+        return mitgliedsnummer;
+    }
+
+    public void setMitgliedsnummer(String mitgliedsnummer) {
+        this.mitgliedsnummer = mitgliedsnummer;
+    }
+
+    public String getRechnungsnummer() {
+        return rechnungsnummer;
+    }
+
+    public void setRechnungsnummer(String rechnungsnummer) {
+        this.rechnungsnummer = rechnungsnummer;
+    }
+
+    @Override
+    public LocalDate getDatum() {
+        return datum;
+    }
+
+    @Override
+    public void setDatum(LocalDate datum) {
+        this.datum = datum;
+    }
+
+    public double getBetrag() {
+        return betrag;
+    }
+
+    public void setBetrag(double betrag) {
+        this.betrag = betrag;
+    }
 }

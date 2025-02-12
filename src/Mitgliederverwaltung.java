@@ -1,21 +1,21 @@
+import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class Mitgliederverwaltung {
-    private ArrayList<Mitglied> mitglieder;
+    private final String DATEIPFAD = "./Mitglieder.json";
 
-    public Mitgliederverwaltung(ArrayList<Mitglied> mitglieder) {
-        this.mitglieder = mitglieder;
+    private List<Mitglied> mitglieder;
+
+    public static void main(String[] args) {
+
     }
 
-    public ArrayList<Mitglied> getMitglieder() {
-        return mitglieder;
-    }
-
-    public void setMitglieder(ArrayList<Mitglied> mitglieder) {
-        this.mitglieder = mitglieder;
+    public List<Mitglied> ladeMitglieder() {
+        File json_mitglieder = new File(DATEIPFAD);
+        ArrayList<Mitglied> mitglieder = new ArrayList<>();
     }
 
     public void erstelleRechnung(Mitglied mitglied, double rechnungsBetrag){
