@@ -1,4 +1,4 @@
-enum Abonnements {
+public enum Abonnements {
     SAUNA("Sauna", 10),
     PARKPLATZ("Parkplatz", 5),
     DUSCHE("Dusche", 5),
@@ -12,8 +12,8 @@ enum Abonnements {
     BAUCH_BEINE_PO("Bauch Beine Po", 15),
     CARDIO_MEETS_WELLNESS("Cardio meets Wellness", 15);
 
-    private String bezeichnung;
-    private double preis;
+    private final String bezeichnung;
+    private final double preis;
 
     Abonnements(String bezeichnung, double preis) {
         this.bezeichnung = bezeichnung;
