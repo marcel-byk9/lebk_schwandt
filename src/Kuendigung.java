@@ -1,4 +1,4 @@
-public class Kuendigung implements Datei {
+public class Kuendigung extends Datei {
     private String mitgliedsnummer;
     private String kuendigungsDatum;
     private String kuendigungsnummer;
