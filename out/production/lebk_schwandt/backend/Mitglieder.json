@@ -1,0 +1,27 @@
+{
+  "mitglieder": [
+    {
+      "mitgliedsnummer": "M12345",
+      "status": "aktiv",
+      "altersklasse": "erwachsen",
+      "antrag": {
+        "antragsnummer": "M123354",
+        "vorname": "Marcel",
+        "nachname": "Test",
+        "geburtsdatum": "01.01.1000",
+        "status": "aktiv",
+        "datum": "01.01.1111",
+        "mitgliedsnummer": "M12345"
+      },
+      "kuendigung": {
+        "mitgliedsnummer": "M12345",
+        "datum": "91.23.2345",
+        "kuendigungsnummer": "K12345"
+      },
+      "abonnements": [],
+      "rechnungen": [],
+      "name": "Max Mustermann",
+      "geburtstag": "1990-05-15"
+    }
+  ]
+}
