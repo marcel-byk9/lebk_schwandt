@@ -30,6 +30,8 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
 
     public MitgliedHinzufuegenView() {
         initComponents();
+
+        abonnementModel = new DefaultListModel<>();
         for(Abonnements abos: Abonnements.values()){
             abonnementModel.addElement(abos);
         }
