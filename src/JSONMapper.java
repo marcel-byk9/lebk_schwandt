@@ -16,11 +16,11 @@ public class JSONMapper {
     }
 
     public static Mitgliederantrag parseMitgliederantrag(JSONObject obj) {
-        return new Mitgliederantrag(obj.getString("antragsnummer"), obj.getString("vorname"), obj.getString("nachname"), obj.getString("geburtstag"), parseMitgliedsstatus(obj.getString("status")), obj.getString("datum"), obj.getString("mitgliedsnummer"));
+        return new Mitgliederantrag(obj.getString("antragsnummer"), obj.getString("vorname"), obj.getString("nachname"), obj.getString("geburtsdatum"), parseMitgliedsstatus(obj.getString("status")), obj.getString("datum"), obj.getString("mitgliedsnummer"));
     }
 
     public static Kuendigung parseKuendigung(JSONObject obj) {
-        return new Kuendigung(obj.getString("nummer"), obj.getString("kuendigungsDatum"), obj.getString("kuendigungsnummer"));
+        return new Kuendigung(obj.getString("kuendigungsnummer"), obj.getString("datum"), obj.getString("kuendigungsnummer"));
     }
 
     public static List<Abonnement> parseAbonnements(JSONArray arr) {

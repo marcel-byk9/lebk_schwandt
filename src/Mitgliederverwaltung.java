@@ -38,7 +38,7 @@ public class Mitgliederverwaltung {
 
             for(int i = 0; i < mitgliederJSON.length(); ++i) {
                 JSONObject m = mitgliederJSON.getJSONObject(i);
-                mitglieder.add(new Mitglied(m.getString("nummer"), JSONMapper.parseMitgliedsstatus(m.getString("status")), JSONMapper.parseAltersklasse(m.getString("altersklasse")), JSONMapper.parseMitgliederantrag(m.getJSONObject("antrag")), JSONMapper.parseKuendigung(m.getJSONObject("kuendigung")), JSONMapper.parseAbonnements(m.getJSONArray("abonnements")), JSONMapper.parseRechnungen(m.getJSONArray("rechnungen")), m.getString("name"), m.getString("geburtstag")));
+                mitglieder.add(new Mitglied(m.getString("mitgliedsnummer"), JSONMapper.parseMitgliedsstatus(m.getString("status")), JSONMapper.parseAltersklasse(m.getString("altersklasse")), JSONMapper.parseMitgliederantrag(m.getJSONObject("antrag")), JSONMapper.parseKuendigung(m.getJSONObject("kuendigung")), JSONMapper.parseAbonnements(m.getJSONArray("abonnements")), JSONMapper.parseRechnungen(m.getJSONArray("rechnungen")), m.getString("name"), m.getString("geburtstag")));
             }
         } catch (FileNotFoundException fnfe) {
             System.out.println(fnfe.getMessage());
