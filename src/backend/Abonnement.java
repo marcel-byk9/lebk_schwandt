@@ -1,3 +1,5 @@
+package backend;
+
 public enum Abonnement {
     SAUNA("Sauna", 10.0),
     PARKPLATZ("Parkplatz", 5.0),

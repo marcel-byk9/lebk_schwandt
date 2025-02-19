@@ -1,6 +1,4 @@
-package Code;
-
-import java.time.LocalDate;
+package backend;
 
 public abstract class Person {
     private String name;

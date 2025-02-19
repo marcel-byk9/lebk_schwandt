@@ -1,8 +1,4 @@
-package Code;
-
-import Code.Datei;
-
-import java.time.LocalDate;
+package backend;
 
 public class Rechnung extends Datei {
     private String mitgliedsnummer;

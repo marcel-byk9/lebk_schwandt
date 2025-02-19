@@ -1,12 +1,9 @@
-package GUI;
+package frontend;
 
-import Code.Mitglied;
-import Code.Mitgliederverwaltung;
+import backend.Mitglied;
+import backend.Mitgliederverwaltung;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import javax.swing.JButton;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -19,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  * @author reineckeKarin
  */
 public class MitgliederverwaltungView extends javax.swing.JFrame {
-    ArrayList<Mitglied> mitglieder;
+    List<Mitglied> mitglieder;
     Mitglied mitglied;
     Mitgliederverwaltung verwaltung;
 

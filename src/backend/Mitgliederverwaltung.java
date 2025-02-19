@@ -1,4 +1,4 @@
-package Code;
+package backend;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,7 +27,7 @@ public class Mitgliederverwaltung {
         ArrayList<Mitglied> mitglieder = new ArrayList<>();
 
         try {
-            File json_mitglieder = new File("C:\\Users\\marce\\IdeaProjects\\git\\lebk_schwandt\\src\\Mitglieder.json");
+            File json_mitglieder = new File("C:\\Users\\marce\\IdeaProjects\\git\\lebk_schwandt\\src\\backend\\Mitglieder.json");
             Scanner sc = new Scanner(json_mitglieder);
             StringBuilder json = new StringBuilder();
 

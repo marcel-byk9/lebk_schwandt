@@ -1,4 +1,4 @@
-package Code;
+package backend;
 
 public enum Mitgliedsstatus {
     AKTIV("aktiv"),

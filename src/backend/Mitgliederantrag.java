@@ -1,4 +1,4 @@
-package Code;
+package backend;
 
 public class Mitgliederantrag extends Datei {
     private String mitgliederantragsnummer;

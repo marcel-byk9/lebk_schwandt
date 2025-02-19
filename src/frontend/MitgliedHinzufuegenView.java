@@ -1,11 +1,9 @@
-package GUI;
+package frontend;
 
-import Code.Abonnements;
-import Code.Mitglied;
-import Code.Mitgliederverwaltung;
-import Code.Person;
+import backend.Abonnement;
+import backend.Mitglied;
+import backend.Mitgliederverwaltung;
 
-import java.util.ArrayList;
 import javax.swing.*;
 
 /*
@@ -28,7 +26,7 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
         initComponents();
 
         abonnementModel = new DefaultListModel<>();
-        for(Abonnements abos: Abonnements.values()){
+        for(Abonnement abos: Abonnement.values()){
             abonnementModel.addElement(abos.toString());
         }
 
