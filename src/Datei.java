@@ -1,44 +1,42 @@
 import java.io.File;
-import java.time.LocalDate;
 
 public abstract class Datei {
-    private final String DATEIPFAD = "../../Mitglieder";
-
-    private LocalDate datum;
+    private String datum;
     private Mitglied mitglied;
     private String dateiName;
     private String text;
     private File datei;
 
-    public void ladeDatei() {
+    public Datei() {
+    }
 
+    public void ladeDatei() {
     }
 
     public void schreibeDatei() {
-
     }
 
-    public LocalDate getDatum() {
-        return datum;
+    public String getDatum() {
+        return this.datum;
     }
 
     public Mitglied getMitglied() {
-        return mitglied;
+        return this.mitglied;
     }
 
     public String getDateiName() {
-        return dateiName;
+        return this.dateiName;
     }
 
     public String getText() {
-        return text;
+        return this.text;
     }
 
     public File getDatei() {
-        return datei;
+        return this.datei;
     }
 
-    public void setDatum(LocalDate datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 

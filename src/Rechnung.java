@@ -1,28 +1,27 @@
-import java.time.LocalDate;
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
 
 public class Rechnung extends Datei {
     private String mitgliedsnummer;
     private String rechnungsnummer;
-    private LocalDate datum;
+    private String datum;
     private double betrag;
 
-    public Rechnung(String mitgliedsnummer, String rechnungsnummer, LocalDate datum, double betrag) {
+    public Rechnung(String mitgliedsnummer, String rechnungsnummer, String datum, double betrag) {
         this.mitgliedsnummer = mitgliedsnummer;
         this.rechnungsnummer = rechnungsnummer;
         this.datum = datum;
         this.betrag = betrag;
     }
 
-    @Override
     public String toString() {
-        return "Mitgliedsnummer: " + this.mitgliedsnummer
-                + "\nRechnungsnummer: " + this.rechnungsnummer
-                + "\nDatum: " + this.datum
-                + "\nBetrag: " + this.betrag;
+        return "Mitgliedsnummer: " + this.mitgliedsnummer + "\nRechnungsnummer: " + this.rechnungsnummer + "\nDatum: " + this.datum + "\nBetrag: " + this.betrag;
     }
 
     public String getMitgliedsnummer() {
-        return mitgliedsnummer;
+        return this.mitgliedsnummer;
     }
 
     public void setMitgliedsnummer(String mitgliedsnummer) {
@@ -30,25 +29,23 @@ public class Rechnung extends Datei {
     }
 
     public String getRechnungsnummer() {
-        return rechnungsnummer;
+        return this.rechnungsnummer;
     }
 
     public void setRechnungsnummer(String rechnungsnummer) {
         this.rechnungsnummer = rechnungsnummer;
     }
 
-    @Override
-    public LocalDate getDatum() {
-        return datum;
+    public String getDatum() {
+        return this.datum;
     }
 
-    @Override
-    public void setDatum(LocalDate datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 
     public double getBetrag() {
-        return betrag;
+        return this.betrag;
     }
 
     public void setBetrag(double betrag) {

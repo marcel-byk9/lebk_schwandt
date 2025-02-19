@@ -1,6 +1,9 @@
 public enum Mitgliedsstatus {
-    AKTIV,
-    PASSIV,
-    EHEMALIG,
-    EHRENMITGLIED
+    AKTIV("aktiv"),
+    PASSIV("passiv"),
+    EHEMALIG("ehemalig"),
+    EHRENMITGLIED("ehrenmitglied");
+
+    private Mitgliedsstatus(String status) {
+    }
 }

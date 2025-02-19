@@ -1,33 +1,31 @@
-import java.time.LocalDate;
-
 public class Kuendigung extends Datei {
     private String mitgliedsnummer;
-    private LocalDate kuendigungsDatum;
+    private String kuendigungsDatum;
     private String kuendigungsnummer;
 
-    public Kuendigung(String mitgliedsnummer, LocalDate kuendigungsDatum, String kuendigungsnummer) {
+    public Kuendigung(String mitgliedsnummer, String kuendigungsDatum, String kuendigungsnummer) {
         this.mitgliedsnummer = mitgliedsnummer;
         this.kuendigungsDatum = kuendigungsDatum;
         this.kuendigungsnummer = kuendigungsnummer;
     }
 
     public String getMitgliedsnummer() {
-        return mitgliedsnummer;
+        return this.mitgliedsnummer;
     }
 
-    public LocalDate getKuendigungsDatum() {
-        return kuendigungsDatum;
+    public String getKuendigungsDatum() {
+        return this.kuendigungsDatum;
     }
 
     public String getKuendigungsnummer() {
-        return kuendigungsnummer;
+        return this.kuendigungsnummer;
     }
 
     public void setMitgliedsnummer(String mitgliedsnummer) {
         this.mitgliedsnummer = mitgliedsnummer;
     }
 
-    public void setKuendigungsDatum(LocalDate kuendigungsDatum) {
+    public void setKuendigungsDatum(String kuendigungsDatum) {
         this.kuendigungsDatum = kuendigungsDatum;
     }
 
@@ -35,10 +33,7 @@ public class Kuendigung extends Datei {
         this.kuendigungsnummer = kuendigungsnummer;
     }
 
-    @Override
-    public String toString(){
-        return "Mitgliedsnummer: " + this.mitgliedsnummer + "\n" +
-                "Kündigungsdatum: " + this.kuendigungsDatum + "\n" +
-                "Kündigungsnummer: " + this.kuendigungsnummer;
+    public String toString() {
+        return "Mitgliedsnummer: " + this.mitgliedsnummer + "\nKündigungsdatum: " + this.kuendigungsDatum + "\nKündigungsnummer: " + this.kuendigungsnummer;
     }
 }

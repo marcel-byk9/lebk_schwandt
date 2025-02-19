@@ -1,7 +1,8 @@
 public enum Altersklasse {
-    JUNG("Jung", 10),
-    ERWACHSEN("Erwachsen", 20),
-    SENIOR("Senior", 15);
+    JUNG("Jung", 10.0),
+    ERWACHSEN("Erwachsen", 20.0),
+    SENIOR("Senior", 15.0);
 
-    Altersklasse(String bezeichnung, double preis){}
+    Altersklasse(String bezeichnung, double preis) {
+    }
 }
