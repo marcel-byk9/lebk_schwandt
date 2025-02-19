@@ -185,8 +185,13 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO open add mitglieder fenster
+
+        MitgliedHinzufuegenView mitgliedFenster = new MitgliedHinzufuegenView();
+        mitgliedFenster.setVisible(true);
+        dispose();
+
     }
+
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO verwaltung.speichern();
