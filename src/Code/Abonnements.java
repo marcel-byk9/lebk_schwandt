@@ -1,3 +1,5 @@
+package Code;
+
 public enum Abonnements {
     SAUNA("Sauna", 10),
     PARKPLATZ("Parkplatz", 5),

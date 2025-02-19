@@ -1,3 +1,7 @@
+package Code;
+
+import Code.Datei;
+
 import java.time.LocalDate;
 
 public class Rechnung extends Datei {

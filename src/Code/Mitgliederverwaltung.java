@@ -1,3 +1,5 @@
+package Code;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
@@ -5,10 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
-import org.json.*;
 
 public class Mitgliederverwaltung {
-    private final String DATEIPFAD = "./Mitglieder.json";
+    private final String DATEIPFAD = "Code/Mitglieder.json";
 
     private List<Mitglied> mitglieder;
 
@@ -16,20 +17,22 @@ public class Mitgliederverwaltung {
 
     }
 
-    public List<Mitglied> ladeMitglieder() {
-        ArrayList<Mitglied> mitglieder = new ArrayList<>();
-        try {
-            File json_mitglieder = new File(DATEIPFAD);
-            Scanner sc = new Scanner(json_mitglieder);
-            StringBuilder json = new StringBuilder();
-            while (sc.hasNextLine()) {
-                json.append(sc.nextLine());
-            }
-            JSONObject obj = new JSONObject(json.toString());
+    public ArrayList<Mitglied> ladeMitglieder() {
 
-        } catch (FileNotFoundException fnfe) {
-            System.out.println(fnfe.getMessage());
-        }
+        List<Abonnements> abos = new ArrayList<Abonnements>();
+        abos.add(Abonnements.BAUCH_BEINE_PO);
+        List<Rechnung> rechnung = new ArrayList<Rechnung>();
+        var antrag = new Mitgliederantrag("Test", "Test", "Test", LocalDate.now(), Mitgliedsstatus.AKTIV,
+                LocalDate.now(), "Test");
+        var mitglied = new Mitglied("Test", Mitgliedsstatus.AKTIV, Altersklasse.ERWACHSEN,
+                antrag, new Kuendigung("Test", LocalDate.now(), "123"),
+                abos, rechnung, "Test", LocalDate.now());
+
+        var mitglieder =  new ArrayList<Mitglied>();
+
+        mitglieder.add(mitglied);
+
+        return mitglieder;
     }
 
     public void erstelleRechnung(Mitglied mitglied, double rechnungsBetrag){
@@ -49,9 +52,5 @@ public class Mitgliederverwaltung {
         Kuendigung kuendigung = new Kuendigung(mitglied.getMitgliedsnummer(), LocalDate.now(), kuendigungsNummer.toString());
 
         mitglied.setKuendigung(kuendigung);
-    }
-
-    public void loescheMitglied(Mitglied mitglied){
-        this.mitglieder.remove(mitglied);
     }
 }
