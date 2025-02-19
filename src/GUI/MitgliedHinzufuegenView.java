@@ -6,11 +6,7 @@ import Code.Mitgliederverwaltung;
 import Code.Person;
 
 import java.util.ArrayList;
-import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.JRadioButton;
-import javax.swing.ListSelectionModel;
+import javax.swing.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,15 +22,18 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
     private Mitgliederverwaltung mitgliederverwaltung;
     String mitgliedsnummer;
     Mitglied person;
-    DefaultListModel<Abonnements> abonnementModel;
+    DefaultListModel<String> abonnementModel;
 
     public MitgliedHinzufuegenView() {
         initComponents();
 
         abonnementModel = new DefaultListModel<>();
         for(Abonnements abos: Abonnements.values()){
-            abonnementModel.addElement(abos);
+            abonnementModel.addElement(abos.toString());
         }
+
+        abonnementsList.setModel(abonnementModel);
+        abonnementsList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
     }
 
     public MitgliedHinzufuegenView(Mitgliederverwaltung mitgliederverwaltung) {
