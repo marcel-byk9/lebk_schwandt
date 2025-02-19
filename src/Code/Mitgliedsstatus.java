@@ -1,3 +1,5 @@
+package Code;
+
 public enum Mitgliedsstatus {
     AKTIV("aktiv"),
     PASSIV("passiv"),

@@ -1,3 +1,5 @@
+package Code;
+
 public class Mitgliederantrag extends Datei {
     private String mitgliederantragsnummer;
     private String vorname;

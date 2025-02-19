@@ -1,3 +1,5 @@
+package Code;
+
 public enum Altersklasse {
     JUNG("Jung", 10.0),
     ERWACHSEN("Erwachsen", 20.0),

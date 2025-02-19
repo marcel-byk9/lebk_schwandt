@@ -1,7 +1,8 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
+package Code;
+
+import Code.Datei;
+
+import java.time.LocalDate;
 
 public class Rechnung extends Datei {
     private String mitgliedsnummer;
@@ -16,6 +17,7 @@ public class Rechnung extends Datei {
         this.betrag = betrag;
     }
 
+    @Override
     public String toString() {
         return "Mitgliedsnummer: " + this.mitgliedsnummer + "\nRechnungsnummer: " + this.rechnungsnummer + "\nDatum: " + this.datum + "\nBetrag: " + this.betrag;
     }

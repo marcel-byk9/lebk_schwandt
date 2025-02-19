@@ -1,3 +1,7 @@
+package Code;
+
+import java.time.LocalDate;
+
 public abstract class Person {
     private String name;
     private String geburtsdatum;
@@ -23,6 +27,7 @@ public abstract class Person {
         this.geburtsdatum = geburtsdatum;
     }
 
+    @Override
     public String toString() {
         return "Name: " + this.name + "\nGeburtstag: " + this.geburtsdatum;
     }

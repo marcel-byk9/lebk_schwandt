@@ -1,3 +1,9 @@
+package Code;
+
+import Code.Datei;
+
+import java.time.LocalDate;
+
 public class Kuendigung extends Datei {
     private String mitgliedsnummer;
     private String kuendigungsDatum;

@@ -1,3 +1,5 @@
+package Code;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
@@ -59,9 +61,5 @@ public class Mitgliederverwaltung {
         UUID kuendigungsNummer = UUID.randomUUID();
         Kuendigung kuendigung = new Kuendigung(mitglied.getMitgliedsnummer(), LocalDate.now().format(this.formatter), kuendigungsNummer.toString());
         mitglied.setKuendigung(kuendigung);
-    }
-
-    public void loescheMitglied(Mitglied mitglied) {
-        mitglieder.remove(mitglied);
     }
 }
