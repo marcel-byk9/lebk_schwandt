@@ -287,7 +287,7 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
             }
         }
 
-        Mitgliederverwaltung.MitgliedHinzufuegen(mitgliedsstatus, altersklasse, new Kuendigung(), abonnements,
+        Mitgliederverwaltung.MitgliedHinzufuegen(mitgliedsstatus, altersklasse, null, abonnements,
                 new ArrayList<Rechnung>(), nameTextField.getText(), geburtsdatumTextField.getText());
 
         MitgliederverwaltungView mitgliederverwaltungFenster = new MitgliederverwaltungView();

@@ -68,9 +68,9 @@ public class Mitgliederverwaltung {
         var mitgliedsAntragsNummer = UUID.randomUUID().toString();
 
         var antrag = new Mitgliederantrag(mitgliedsAntragsNummer, name, geburtstag, mitgliedsstatus, LocalDate.now().toString(),
-                mitgliedsNummer);
+                mitgliedsNummer, "Mitgliederantrag");
 
-        var mitglied = new Mitglied(mitgliedsNummer, mitgliedsstatus, altersklasse, antrag, new Kuendigung(),
+        var mitglied = new Mitglied(mitgliedsNummer, mitgliedsstatus, altersklasse, antrag, null,
                 abonnements, rechnungen, name, geburtstag);
 
         mitglieder.add(mitglied);
@@ -100,8 +100,9 @@ public class Mitgliederverwaltung {
         Rechnung rechnung = new Rechnung(
                 mitglied.getMitgliedsnummer(),
                 rechnungsnummer.toString(),
-                LocalDate.now().format(this.formatter),
-                rechnungsBetrag
+                rechnungsBetrag,
+                LocalDate.now().format(this.formatter).toString(),
+                "Rechnung"
         );
         List<Rechnung> mitgliederRechnungen = mitglied.getRechnungen();
         mitgliederRechnungen.add(rechnung);
@@ -112,8 +113,10 @@ public class Mitgliederverwaltung {
         UUID kuendigungsNummer = UUID.randomUUID();
         Kuendigung kuendigung = new Kuendigung(
                 mitglied.getMitgliedsnummer(),
-                LocalDate.now().format(this.formatter),
-                kuendigungsNummer.toString()
+                LocalDate.now().format(this.formatter).toString(),
+                kuendigungsNummer.toString(),
+                LocalDate.now().format(this.formatter).toString(),
+                "Kuendigung"
         );
         mitglied.setKuendigung(kuendigung);
     }
