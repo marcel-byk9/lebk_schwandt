@@ -24,7 +24,7 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
 
     public MitgliedHinzufuegenView() {
         initComponents();
-        this.setSize(450,550);
+        this.setSize(700,550);
 
         abonnementModel = new DefaultListModel<>();
         for(Abonnement abos: Abonnement.values()){

@@ -1,26 +1,3 @@
 {
-  "mitglieder": [
-    {
-      "mitgliedsnummer": "M12345",
-      "status": "aktiv",
-      "altersklasse": "erwachsen",
-      "antrag": {
-        "antragsnummer": "M123354",
-        "name": "Torsten Test",
-        "geburtsdatum": "01.01.1000",
-        "status": "aktiv",
-        "datum": "01.01.1111",
-        "mitgliedsnummer": "M12345"
-      },
-      "kuendigung": {
-        "mitgliedsnummer": "M12345",
-        "datum": "91.23.2345",
-        "kuendigungsnummer": "K12345"
-      },
-      "abonnements": [],
-      "rechnungen": [],
-      "name": "Torsten Test",
-      "geburtstag": "01.01.1000"
-    }
-  ]
+[{"geburtsdatum":"19.06.2004","kuendigung":{},"mitgliederantrag":{},"abonnements":[],"rechnungen":[],"name":"Tim","altersklasse":{"preis":20,"bezeichnung":"Erwachsen"},"mitgliedsnummer":"7f1dab66-6c90-4fdd-b174-3ef3f8175920","status":{"status":"aktiv"}}]
 }

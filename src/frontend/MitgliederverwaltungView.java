@@ -32,7 +32,7 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
 
         Object[][] data = new Object[mitglieder.size()][2];
         String[] columns = new String[]{
-                "Mitglied", "Mitglied seit", "Aktion"
+                "Mitglied", "Mitglied seit"
         };
 
         for (int i = 0; i < mitglieder.size(); i++) {
