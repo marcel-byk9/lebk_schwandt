@@ -1,7 +1,6 @@
 package backend;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -12,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Mitgliederverwaltung {
+    private static final String JSONPFAD = "C:\\Users\\marce\\IdeaProjects\\git\\lebk_schwandt\\src\\backend\\Mitglieder.json";
+
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
     private static List<Mitglied> mitglieder;
 
@@ -25,9 +26,8 @@ public class Mitgliederverwaltung {
 
     public static List<Mitglied> ladeMitglieder() {
         ArrayList<Mitglied> mitglieder = new ArrayList<>();
-
         try {
-            File json_mitglieder = new File("C:\\Users\\marce\\IdeaProjects\\git\\lebk_schwandt\\src\\backend\\Mitglieder.json");
+            File json_mitglieder = new File(JSONPFAD);
             Scanner sc = new Scanner(json_mitglieder);
             StringBuilder json = new StringBuilder();
 
@@ -57,8 +57,18 @@ public class Mitgliederverwaltung {
         } catch (FileNotFoundException fnfe) {
             System.out.println(fnfe.getMessage());
         }
-
         return mitglieder;
+    }
+
+    public static void speichereDaten() {
+        File json_mitglieder = new File(JSONPFAD);
+        JSONArray arr = new JSONArray(mitglieder);
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(json_mitglieder, false));
+            bw.write(arr.toString());
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
     }
 
     public void erstelleRechnung(Mitglied mitglied, double rechnungsBetrag) {
