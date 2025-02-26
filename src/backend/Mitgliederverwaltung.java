@@ -60,6 +60,22 @@ public class Mitgliederverwaltung {
         return mitglieder;
     }
 
+    public static void MitgliedHinzufuegen(Mitgliedsstatus mitgliedsstatus, Altersklasse altersklasse, Kuendigung kuendigung,
+                                           List<Abonnement> abonnements,ArrayList<Rechnung> rechnungen, String name, String geburtstag){
+        var mitgliedsNummer = UUID.randomUUID().toString();
+        var mitgliedsAntragsNummer = UUID.randomUUID().toString();
+
+        var antrag = new Mitgliederantrag(mitgliedsAntragsNummer, name, geburtstag, mitgliedsstatus, LocalDate.now().toString(),
+                mitgliedsNummer);
+
+        var mitglied = new Mitglied(mitgliedsNummer, mitgliedsstatus, altersklasse, antrag, new Kuendigung(),
+                abonnements, rechnungen, name, geburtstag);
+
+        mitglieder.add(mitglied);
+
+        Mitgliederverwaltung.speichereDaten();
+    }
+
     public static void speichereDaten() {
         File json_mitglieder = new File(JSONPFAD);
         JSONArray arr = new JSONArray(mitglieder);
