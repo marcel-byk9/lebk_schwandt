@@ -25,15 +25,18 @@ public class JSONMapper {
                 obj.getString("geburtsdatum"),
                 parseMitgliedsstatus(obj.getString("status")),
                 obj.getString("datum"),
-                obj.getString("mitgliedsnummer")
+                obj.getString("mitgliedsnummer"),
+                obj.getString("text")
         );
     }
 
     public static Kuendigung parseKuendigung(JSONObject obj) {
         return new Kuendigung(
+                obj.getString("mitgliedsnummer"),
+                obj.getString("kuendigungsDatum"),
                 obj.getString("kuendigungsnummer"),
                 obj.getString("datum"),
-                obj.getString("kuendigungsnummer")
+                obj.getString("text")
         );
     }
 
@@ -53,8 +56,9 @@ public class JSONMapper {
         return new Rechnung(
                 obj.getString("mitgliedsnummer"),
                 obj.getString("rechnungsnummer"),
+                obj.getDouble("betrag"),
                 obj.getString("datum"),
-                obj.getDouble("betrag")
+                obj.getString("text")
         );
     }
 

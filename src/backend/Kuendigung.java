@@ -5,14 +5,12 @@ public class Kuendigung extends Datei {
     private String kuendigungsDatum;
     private String kuendigungsnummer;
 
-    public Kuendigung(String mitgliedsnummer, String kuendigungsDatum, String kuendigungsnummer) {
+    public Kuendigung(String mitgliedsnummer, String kuendigungsDatum, String kuendigungsnummer,
+                      String datum, String text) {
+        super(datum, text);
         this.mitgliedsnummer = mitgliedsnummer;
         this.kuendigungsDatum = kuendigungsDatum;
         this.kuendigungsnummer = kuendigungsnummer;
-    }
-
-    public Kuendigung() {
-
     }
 
     public String getMitgliedsnummer() {

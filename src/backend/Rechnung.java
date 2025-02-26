@@ -3,13 +3,13 @@ package backend;
 public class Rechnung extends Datei {
     private String mitgliedsnummer;
     private String rechnungsnummer;
-    private String datum;
     private double betrag;
 
-    public Rechnung(String mitgliedsnummer, String rechnungsnummer, String datum, double betrag) {
+    public Rechnung(String mitgliedsnummer, String rechnungsnummer, double betrag, String datum,
+                    String text) {
+        super(datum, text);
         this.mitgliedsnummer = mitgliedsnummer;
         this.rechnungsnummer = rechnungsnummer;
-        this.datum = datum;
         this.betrag = betrag;
     }
 
@@ -17,7 +17,7 @@ public class Rechnung extends Datei {
     public String toString() {
         return "Mitgliedsnummer: " + this.mitgliedsnummer
                 + "\nRechnungsnummer: " + this.rechnungsnummer
-                + "\nDatum: " + this.datum
+                + "\nDatum: " + this.getDatum()
                 + "\nBetrag: " + this.betrag;
     }
 
@@ -35,14 +35,6 @@ public class Rechnung extends Datei {
 
     public void setRechnungsnummer(String rechnungsnummer) {
         this.rechnungsnummer = rechnungsnummer;
-    }
-
-    public String getDatum() {
-        return this.datum;
-    }
-
-    public void setDatum(String datum) {
-        this.datum = datum;
     }
 
     public double getBetrag() {
