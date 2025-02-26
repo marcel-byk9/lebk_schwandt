@@ -12,12 +12,13 @@ import org.json.JSONObject;
 
 public class Mitgliederverwaltung {
     private static final String JSONPFAD =
-            "C:\\Users\\marce\\IdeaProjects\\git\\lebk_schwandt\\src\\backend\\Mitglieder.json";
+            "C:\\Users\\timsa\\IdeaProjects\\lebk_schwandt\\src\\backend\\Mitglieder.json";
 
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
     private static List<Mitglied> mitglieder;
 
     public Mitgliederverwaltung() {
+        mitglieder = new ArrayList<>();
     }
 
     public static void main(String[] args) {

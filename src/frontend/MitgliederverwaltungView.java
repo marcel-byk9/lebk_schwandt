@@ -23,7 +23,7 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
     public MitgliederverwaltungView() {
         initComponents();
         verwaltung = new Mitgliederverwaltung();
-        mitglieder = verwaltung.ladeMitglieder();
+        mitglieder = Mitgliederverwaltung.ladeMitglieder();
 
         Object[][] data = new Object[mitglieder.size()][2];
         String[] columns = new String[]{
@@ -185,8 +185,7 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
 
         MitgliedHinzufuegenView mitgliedFenster = new MitgliedHinzufuegenView();
         mitgliedFenster.setVisible(true);
-        dispose();
-
+        this.setVisible(false);
     }
 
 

@@ -24,6 +24,7 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
 
     public MitgliedHinzufuegenView() {
         initComponents();
+        this.setSize(450,550);
 
         abonnementModel = new DefaultListModel<>();
         for(Abonnement abos: Abonnement.values()){
@@ -32,19 +33,6 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
 
         abonnementsList.setModel(abonnementModel);
         abonnementsList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-    }
-
-    public MitgliedHinzufuegenView(Mitgliederverwaltung mitgliederverwaltung) {
-        this.mitgliederverwaltung = mitgliederverwaltung;
-        initComponents();
-        this.setSize(390,500);
-    }
-
-
-    public MitgliedHinzufuegenView(String mitgliedsnummer, Mitglied person){
-        this.mitgliedsnummer= mitgliedsnummer;
-        this.person = person;
-        initComponents();
     }
 
     /**
@@ -301,6 +289,10 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
 
         Mitgliederverwaltung.MitgliedHinzufuegen(mitgliedsstatus, altersklasse, new Kuendigung(), abonnements,
                 new ArrayList<Rechnung>(), nameTextField.getText(), geburtsdatumTextField.getText());
+
+        MitgliederverwaltungView mitgliederverwaltungFenster = new MitgliederverwaltungView();
+        mitgliederverwaltungFenster.setVisible(true);
+        dispose();
     }
 
     private void geburtsdatumTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
