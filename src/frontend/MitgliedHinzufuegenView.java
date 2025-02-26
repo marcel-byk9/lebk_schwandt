@@ -1,10 +1,10 @@
 package frontend;
 
-import backend.Abonnement;
-import backend.Mitglied;
-import backend.Mitgliederverwaltung;
+import backend.*;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -225,9 +225,82 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
     }
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        //Person neuePerson = new Person(nameTextField.getText(), geburtsdatumTextField.getText());
-        //Mitglied neuesMitglied = new Mitglied(mitgliedsnummerTextField.getText(),neuePerson);
-        //mitgliederverwaltung.addMitglied(neuesMitglied);
+        var status = this.statusComboBox.getSelectedIndex();
+        Mitgliedsstatus mitgliedsstatus = Mitgliedsstatus.PASSIV;
+        switch (status){
+            case 0:
+                mitgliedsstatus = Mitgliedsstatus.AKTIV;
+                break;
+            case 1:
+                mitgliedsstatus = Mitgliedsstatus.PASSIV;
+                break;
+            case 2:
+                mitgliedsstatus = Mitgliedsstatus.EHEMALIG;
+                break;
+            case 3:
+                mitgliedsstatus = Mitgliedsstatus.EHRENMITGLIED;
+                break;
+        }
+
+        var alter = this.alterComboBox.getSelectedIndex();
+        Altersklasse altersklasse = Altersklasse.ERWACHSEN;
+        switch (alter){
+            case 0:
+                altersklasse = Altersklasse.JUNG;
+                break;
+            case 1:
+                altersklasse = Altersklasse.ERWACHSEN;
+                break;
+            case 2:
+                altersklasse = Altersklasse.SENIOR;
+                break;
+        }
+
+        List<String> abos =  abonnementsList.getSelectedValuesList();
+        List<Abonnement> abonnements = new ArrayList<>();
+        for (String abo : abos){
+            switch(abo){
+                case "Sauna":
+                    abonnements.add(Abonnement.SAUNA);
+                    break;
+                case "Parkplatz":
+                    abonnements.add(Abonnement.PARKPLATZ);
+                    break;
+                case "Dusche":
+                    abonnements.add(Abonnement.DUSCHE);
+                    break;
+                case "Bodypump":
+                    abonnements.add(Abonnement.BODYPUMP);
+                    break;
+                case "Indoor Cycling":
+                    abonnements.add(Abonnement.INDOOR_CYCLING);
+                    break;
+                case "Bodabalance":
+                    abonnements.add(Abonnement.BODABALANCE);
+                    break;
+                case "Les Mills Grit":
+                    abonnements.add(Abonnement.LES_MILLS_GRIT);
+                    break;
+                case "Bodystyling":
+                    abonnements.add(Abonnement.BODYSTYLING);
+                    break;
+                case "Rücken Soft":
+                    abonnements.add(Abonnement.RUECKEN_SOFT);
+                    break;
+                case "Rücken Aktiv":
+                    abonnements.add(Abonnement.RUECKEN_AKTIV);
+                    break;
+                case "Bauch Beine Po":
+                    abonnements.add(Abonnement.BAUCH_BEINE_PO);
+                    break;
+                case "Cardio meets Wellness":
+                    abonnements.add(Abonnement.CARDIO_MEETS_WELLNESS);
+                    break;
+            }
+        }
+
+        Mitgliederverwaltung.MitgliedHinzufuegen(mitgliedsstatus, altersklasse, new Kuendigung(), abonnements,
+                new ArrayList<Rechnung>(), nameTextField.getText(), geburtsdatumTextField.getText());
     }
 
     private void geburtsdatumTextFieldActionPerformed(java.awt.event.ActionEvent evt) {

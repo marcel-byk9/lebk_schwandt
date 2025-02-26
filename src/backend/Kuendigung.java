@@ -11,6 +11,10 @@ public class Kuendigung extends Datei {
         this.kuendigungsnummer = kuendigungsnummer;
     }
 
+    public Kuendigung() {
+
+    }
+
     public String getMitgliedsnummer() {
         return this.mitgliedsnummer;
     }

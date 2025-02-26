@@ -11,7 +11,9 @@ public class Mitglied extends Person {
     private List<Abonnement> abonnements;
     private List<Rechnung> rechnungen;
 
-    public Mitglied(String mitgliedsnummer, Mitgliedsstatus status, Altersklasse altersklasse, Mitgliederantrag mitgliederantrag, Kuendigung kuendigung, List<Abonnement> abonnements, List<Rechnung> rechnungen, String name, String geburtstag) {
+    public Mitglied(String mitgliedsnummer, Mitgliedsstatus status, Altersklasse altersklasse,
+                    Mitgliederantrag mitgliederantrag, Kuendigung kuendigung, List<Abonnement> abonnements,
+                    List<Rechnung> rechnungen, String name, String geburtstag) {
         super(name, geburtstag);
         this.mitgliedsnummer = mitgliedsnummer;
         this.status = status;
