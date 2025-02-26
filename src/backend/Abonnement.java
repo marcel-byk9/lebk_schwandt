@@ -17,7 +17,7 @@ public enum Abonnement {
     private final String bezeichnung;
     private final double preis;
 
-    private Abonnement(String bezeichnung, double preis) {
+    Abonnement(String bezeichnung, double preis) {
         this.bezeichnung = bezeichnung;
         this.preis = preis;
     }
