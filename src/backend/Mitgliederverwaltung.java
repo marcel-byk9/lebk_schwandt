@@ -82,7 +82,12 @@ public class Mitgliederverwaltung {
         JSONArray arr = new JSONArray(mitglieder);
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(json_mitglieder, false));
+            bw.write('{');
+            bw.newLine();
             bw.write(arr.toString());
+            bw.newLine();
+            bw.write('}');
+            bw.close();
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
