@@ -85,6 +85,7 @@ public class Mitgliederverwaltung {
             BufferedWriter bw = new BufferedWriter(new FileWriter(json_mitglieder, false));
             bw.write('{');
             bw.newLine();
+            bw.write("\"mitglieder\": ");
             bw.write(arr.toString());
             bw.newLine();
             bw.write('}');
