@@ -3,7 +3,12 @@ package frontend;
 import backend.Mitglied;
 import backend.Mitgliederverwaltung;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -37,8 +42,50 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
         }
 
         DefaultTableModel model = new DefaultTableModel(data, columns);
-
         mitgliederTable.setModel(model);
+
+        // Erzeuge das Rechtsklick-Menü
+        JPopupMenu contextMenu = new JPopupMenu();
+
+        JMenuItem removeItem = new JMenuItem("Entfernen");
+        removeItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = mitgliederTable.getSelectedRow();
+                if (selectedRow != -1) {
+                    model.removeRow(selectedRow);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zeile zum Entfernen aus.");
+                }
+            }
+        });
+        contextMenu.add(removeItem);
+
+        JMenuItem editItem = new JMenuItem("Bearbeiten");
+        editItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = mitgliederTable.getSelectedRow();
+                if (selectedRow != -1) {
+                    mitgliederTable.editCellAt(selectedRow, 0);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zeile zum Bearbeiten aus.");
+                }
+            }
+        });
+        contextMenu.add(editItem);
+
+        // MouseListener hinzufügen, um das Rechtsklick-Menü zu zeigen
+        mitgliederTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    int row = mitgliederTable.rowAtPoint(e.getPoint());
+                    mitgliederTable.setRowSelectionInterval(row, row);
+                    contextMenu.show(e.getComponent(), e.getX(), e.getY());
+                }
+            }
+        });
     }
 
     public void addMitglied(Mitglied mitglied) {
