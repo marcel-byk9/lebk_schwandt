@@ -8,7 +8,8 @@ public class Mitgliederantrag extends Datei {
     private String datum;
     private String mitgliedsnummer;
 
-    public Mitgliederantrag(String mitgliederantragsnummer, String name, String geburtsdatum, Mitgliedsstatus mitgliedsstatus, String datum, String mitgliedsnummer) {
+    public Mitgliederantrag(String mitgliederantragsnummer, String name, String geburtsdatum,
+                            Mitgliedsstatus mitgliedsstatus, String datum, String mitgliedsnummer) {
         this.mitgliederantragsnummer = mitgliederantragsnummer;
         this.name = name;
         this.geburtsdatum = geburtsdatum;

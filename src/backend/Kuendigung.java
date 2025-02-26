@@ -40,6 +40,8 @@ public class Kuendigung extends Datei {
     }
 
     public String toString() {
-        return "Mitgliedsnummer: " + this.mitgliedsnummer + "\nKündigungsdatum: " + this.kuendigungsDatum + "\nKündigungsnummer: " + this.kuendigungsnummer;
+        return "Mitgliedsnummer: " + this.mitgliedsnummer
+                + "\nKündigungsdatum: " + this.kuendigungsDatum
+                + "\nKündigungsnummer: " + this.kuendigungsnummer;
     }
 }

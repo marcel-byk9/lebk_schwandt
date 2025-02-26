@@ -15,7 +15,10 @@ public class Rechnung extends Datei {
 
     @Override
     public String toString() {
-        return "Mitgliedsnummer: " + this.mitgliedsnummer + "\nRechnungsnummer: " + this.rechnungsnummer + "\nDatum: " + this.datum + "\nBetrag: " + this.betrag;
+        return "Mitgliedsnummer: " + this.mitgliedsnummer
+                + "\nRechnungsnummer: " + this.rechnungsnummer
+                + "\nDatum: " + this.datum
+                + "\nBetrag: " + this.betrag;
     }
 
     public String getMitgliedsnummer() {

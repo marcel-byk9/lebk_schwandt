@@ -6,8 +6,7 @@
       "altersklasse": "erwachsen",
       "antrag": {
         "antragsnummer": "M123354",
-        "vorname": "Marcel",
-        "nachname": "Test",
+        "name": "Torsten Test",
         "geburtsdatum": "01.01.1000",
         "status": "aktiv",
         "datum": "01.01.1111",
@@ -20,8 +19,8 @@
       },
       "abonnements": [],
       "rechnungen": [],
-      "name": "Max Mustermann",
-      "geburtstag": "1990-05-15"
+      "name": "Torsten Test",
+      "geburtstag": "01.01.1000"
     }
   ]
 }

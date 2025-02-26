@@ -6,6 +6,13 @@ public enum Mitgliedsstatus {
     EHEMALIG("ehemalig"),
     EHRENMITGLIED("ehrenmitglied");
 
-    private Mitgliedsstatus(String status) {
+    private final String status;
+
+    Mitgliedsstatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

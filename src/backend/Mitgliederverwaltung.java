@@ -11,7 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Mitgliederverwaltung {
-    private static final String JSONPFAD = "C:\\Users\\marce\\IdeaProjects\\git\\lebk_schwandt\\src\\backend\\Mitglieder.json";
+    private static final String JSONPFAD =
+            "C:\\Users\\marce\\IdeaProjects\\git\\lebk_schwandt\\src\\backend\\Mitglieder.json";
 
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
     private static List<Mitglied> mitglieder;
@@ -73,7 +74,12 @@ public class Mitgliederverwaltung {
 
     public void erstelleRechnung(Mitglied mitglied, double rechnungsBetrag) {
         UUID rechnungsnummer = UUID.randomUUID();
-        Rechnung rechnung = new Rechnung(mitglied.getMitgliedsnummer(), rechnungsnummer.toString(), LocalDate.now().format(this.formatter), rechnungsBetrag);
+        Rechnung rechnung = new Rechnung(
+                mitglied.getMitgliedsnummer(),
+                rechnungsnummer.toString(),
+                LocalDate.now().format(this.formatter),
+                rechnungsBetrag
+        );
         List<Rechnung> mitgliederRechnungen = mitglied.getRechnungen();
         mitgliederRechnungen.add(rechnung);
         mitglied.setRechnungen(mitgliederRechnungen);
@@ -81,7 +87,11 @@ public class Mitgliederverwaltung {
 
     public void erstelleKuendigung(Mitglied mitglied) {
         UUID kuendigungsNummer = UUID.randomUUID();
-        Kuendigung kuendigung = new Kuendigung(mitglied.getMitgliedsnummer(), LocalDate.now().format(this.formatter), kuendigungsNummer.toString());
+        Kuendigung kuendigung = new Kuendigung(
+                mitglied.getMitgliedsnummer(),
+                LocalDate.now().format(this.formatter),
+                kuendigungsNummer.toString()
+        );
         mitglied.setKuendigung(kuendigung);
     }
 }

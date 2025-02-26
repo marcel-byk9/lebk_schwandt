@@ -9,6 +9,12 @@ public abstract class Person {
         this.geburtsdatum = geburtsdatum;
     }
 
+    @Override
+    public String toString() {
+        return "Name: " + this.name
+                + "\nGeburtstag: " + this.geburtsdatum;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -23,10 +29,5 @@ public abstract class Person {
 
     public void setGeburtsdatum(String geburtsdatum) {
         this.geburtsdatum = geburtsdatum;
-    }
-
-    @Override
-    public String toString() {
-        return "Name: " + this.name + "\nGeburtstag: " + this.geburtsdatum;
     }
 }

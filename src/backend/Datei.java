@@ -12,12 +12,6 @@ public abstract class Datei {
     public Datei() {
     }
 
-    public void ladeDatei() {
-    }
-
-    public void schreibeDatei() {
-    }
-
     public String getDatum() {
         return this.datum;
     }
