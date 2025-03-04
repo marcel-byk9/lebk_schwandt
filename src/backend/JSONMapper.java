@@ -22,10 +22,10 @@ public class JSONMapper {
 
     public static Mitgliederantrag parseMitgliederantrag(JSONObject obj) {
         return new Mitgliederantrag(
-                obj.getString("antragsnummer"),
+                obj.getString("mitgliederantragsnummer"),
                 obj.getString("name"),
                 obj.getString("geburtsdatum"),
-                parseMitgliedsstatus(obj.getJSONObject("status")),
+                parseMitgliedsstatus(obj.getJSONObject("mitgliedsstatus")),
                 obj.getString("datum"),
                 obj.getString("mitgliedsnummer"),
                 obj.getString("text")
@@ -51,7 +51,7 @@ public class JSONMapper {
     }
 
     public static Abonnement parseAbonnement(JSONObject obj) {
-        return Abonnement.valueOf(obj.getString("abonnements"));
+        return Abonnement.valueOf(obj.getString("bezeichnung").toUpperCase());
     }
 
     public static Rechnung parseRechnung(JSONObject obj) {
