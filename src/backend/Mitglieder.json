@@ -1,3 +1,3 @@
 {
-"mitglieder": [{"geburtsdatum":"19.06.2004","mitgliederantrag":{"datum":"2025-03-04","text":"Mitgliederantrag"},"abonnements":[],"rechnungen":[],"name":"Tim","altersklasse":{"preis":20,"bezeichnung":"Erwachsen"},"mitgliedsnummer":"5ae8086c-b802-446c-8cde-2eb2b5cc8c3d","status":{"status":"aktiv"}}]
+"mitglieder": [{"geburtsdatum":"19.06.2004","mitgliederantrag":{"datum":"2025-03-04","text":"Mitgliederantrag"},"abonnements":[{"preis":10,"bezeichnung":"Sauna"},{"preis":5,"bezeichnung":"Dusche"},{"preis":15,"bezeichnung":"Indoor Cycling"}],"rechnungen":[],"name":"Tim","altersklasse":{"preis":20,"bezeichnung":"Erwachsen"},"mitgliedsnummer":"57b33f4f-ef2c-4be0-b096-8cd3478dc077","status":{"status":"aktiv"}}]
 }
