@@ -51,7 +51,7 @@ public class JSONMapper {
     }
 
     public static Abonnement parseAbonnement(JSONObject obj) {
-        return Abonnement.valueOf(obj.getString("bezeichnung").toUpperCase());
+        return Abonnement.getByBezeichnung(obj.getString("bezeichnung").toUpperCase());
     }
 
     public static Rechnung parseRechnung(JSONObject obj) {

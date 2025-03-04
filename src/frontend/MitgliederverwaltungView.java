@@ -238,8 +238,7 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
 
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO verwaltung.speichern();
-
+        Mitgliederverwaltung.speichereDaten();
         dispose();
     }
 

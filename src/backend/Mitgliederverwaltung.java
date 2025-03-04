@@ -53,7 +53,7 @@ public class Mitgliederverwaltung {
                         JSONMapper.parseAbonnements(m.getJSONArray("abonnements")),
                         JSONMapper.parseRechnungen(m.getJSONArray("rechnungen")),
                         m.getString("name"),
-                        m.getString("geburtstag")
+                        m.getString("geburtsdatum")
                 );
 
                 try {
