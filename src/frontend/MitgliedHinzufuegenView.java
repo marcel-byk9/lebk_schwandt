@@ -5,6 +5,7 @@ import backend.*;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -248,40 +249,40 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
         List<Abonnement> abonnements = new ArrayList<>();
         for (String abo : abos){
             switch(abo){
-                case "Sauna":
+                case "SAUNA":
                     abonnements.add(Abonnement.SAUNA);
                     break;
-                case "Parkplatz":
+                case "PARKPLATZ":
                     abonnements.add(Abonnement.PARKPLATZ);
                     break;
-                case "Dusche":
+                case "DUSCHE":
                     abonnements.add(Abonnement.DUSCHE);
                     break;
-                case "Bodypump":
+                case "BODYPUMP":
                     abonnements.add(Abonnement.BODYPUMP);
                     break;
-                case "Indoor Cycling":
+                case "INDOOR_CYCLING":
                     abonnements.add(Abonnement.INDOOR_CYCLING);
                     break;
-                case "Bodabalance":
+                case "BODABALANCE":
                     abonnements.add(Abonnement.BODABALANCE);
                     break;
-                case "Les Mills Grit":
+                case "LES_MILLS_GRIT":
                     abonnements.add(Abonnement.LES_MILLS_GRIT);
                     break;
-                case "Bodystyling":
+                case "BODYSTYLING":
                     abonnements.add(Abonnement.BODYSTYLING);
                     break;
-                case "Rücken Soft":
+                case "RUECKEN_SOFT":
                     abonnements.add(Abonnement.RUECKEN_SOFT);
                     break;
-                case "Rücken Aktiv":
+                case "RUECKEN_AKTIV":
                     abonnements.add(Abonnement.RUECKEN_AKTIV);
                     break;
-                case "Bauch Beine Po":
+                case "BAUCH_BEINE_PO":
                     abonnements.add(Abonnement.BAUCH_BEINE_PO);
                     break;
-                case "Cardio meets Wellness":
+                case "CARDIO_MEETS_WELLNESS":
                     abonnements.add(Abonnement.CARDIO_MEETS_WELLNESS);
                     break;
             }

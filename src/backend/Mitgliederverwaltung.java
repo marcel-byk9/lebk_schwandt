@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Mitgliederverwaltung {
@@ -42,19 +43,26 @@ public class Mitgliederverwaltung {
 
             for(int i = 0; i < mitgliederJSON.length(); ++i) {
                 JSONObject m = mitgliederJSON.getJSONObject(i);
-                mitglieder.add(
-                        new Mitglied(
-                                m.getString("mitgliedsnummer"),
-                                JSONMapper.parseMitgliedsstatus(m.getJSONObject("status")),
-                                JSONMapper.parseAltersklasse(m.getJSONObject("altersklasse")),
-                                JSONMapper.parseMitgliederantrag(m.getJSONObject("mitgliederantrag")),
-                                JSONMapper.parseKuendigung(m.getJSONObject("kuendigung")),
-                                JSONMapper.parseAbonnements(m.getJSONArray("abonnements")),
-                                JSONMapper.parseRechnungen(m.getJSONArray("rechnungen")),
-                                m.getString("name"),
-                                m.getString("geburtstag")
-                        )
+
+                Mitglied mit = new Mitglied(
+                        m.getString("mitgliedsnummer"),
+                        JSONMapper.parseMitgliedsstatus(m.getJSONObject("status")),
+                        JSONMapper.parseAltersklasse(m.getJSONObject("altersklasse")),
+                        JSONMapper.parseMitgliederantrag(m.getJSONObject("mitgliederantrag")),
+                        null,
+                        JSONMapper.parseAbonnements(m.getJSONArray("abonnements")),
+                        JSONMapper.parseRechnungen(m.getJSONArray("rechnungen")),
+                        m.getString("name"),
+                        m.getString("geburtstag")
                 );
+
+                try {
+                    mit.setKuendigung(JSONMapper.parseKuendigung(m.getJSONObject("kuendigung")));
+                }catch (JSONException e){
+                    System.out.println("Keine Kuendigung gefunden");
+                }
+
+                mitglieder.add(mit);
             }
         } catch (FileNotFoundException fnfe) {
             System.out.println(fnfe.getMessage());
