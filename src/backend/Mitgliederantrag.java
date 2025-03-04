@@ -16,4 +16,44 @@ public class Mitgliederantrag extends Datei {
         this.mitgliedsstatus = mitgliedsstatus;
         this.mitgliedsnummer = mitgliedsnummer;
     }
+
+    public String getMitgliederantragsnummer() {
+        return mitgliederantragsnummer;
+    }
+
+    public void setMitgliederantragsnummer(String mitgliederantragsnummer) {
+        this.mitgliederantragsnummer = mitgliederantragsnummer;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGeburtsdatum() {
+        return geburtsdatum;
+    }
+
+    public void setGeburtsdatum(String geburtsdatum) {
+        this.geburtsdatum = geburtsdatum;
+    }
+
+    public Mitgliedsstatus getMitgliedsstatus() {
+        return mitgliedsstatus;
+    }
+
+    public void setMitgliedsstatus(Mitgliedsstatus mitgliedsstatus) {
+        this.mitgliedsstatus = mitgliedsstatus;
+    }
+
+    public String getMitgliedsnummer() {
+        return mitgliedsnummer;
+    }
+
+    public void setMitgliedsnummer(String mitgliedsnummer) {
+        this.mitgliedsnummer = mitgliedsnummer;
+    }
 }
