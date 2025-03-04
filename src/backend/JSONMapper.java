@@ -10,11 +10,13 @@ public class JSONMapper {
     public JSONMapper() {
     }
 
-    public static Mitgliedsstatus parseMitgliedsstatus(String str) {
+    public static Mitgliedsstatus parseMitgliedsstatus(JSONObject obj) {
+        var str = obj.getString("status");
         return Mitgliedsstatus.valueOf(str.toUpperCase());
     }
 
-    public static Altersklasse parseAltersklasse(String str) {
+    public static Altersklasse parseAltersklasse(JSONObject obj) {
+        var str = obj.getString("bezeichnung");
         return Altersklasse.valueOf(str.toUpperCase());
     }
 
@@ -23,7 +25,7 @@ public class JSONMapper {
                 obj.getString("antragsnummer"),
                 obj.getString("name"),
                 obj.getString("geburtsdatum"),
-                parseMitgliedsstatus(obj.getString("status")),
+                parseMitgliedsstatus(obj.getJSONObject("status")),
                 obj.getString("datum"),
                 obj.getString("mitgliedsnummer"),
                 obj.getString("text")

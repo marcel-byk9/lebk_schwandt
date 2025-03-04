@@ -1,20 +1,3 @@
 {
-"mitglieder": [
-  {
-    "geburtsdatum": "19.06.2004",
-    "kuendigung": {},
-    "mitgliederantrag": {},
-    "abonnements": [],
-    "rechnungen": [],
-    "name": "Tim",
-    "altersklasse": {
-      "preis": 20,
-      "bezeichnung": "Erwachsen"
-    },
-    "mitgliedsnummer": "7f1dab66-6c90-4fdd-b174-3ef3f8175920",
-    "status": {
-      "status": "aktiv"
-    }
-  }
-]
+"mitglieder": [{"geburtsdatum":"19.06.2004","mitgliederantrag":{"datum":"2025-03-04","text":"Mitgliederantrag"},"abonnements":[],"rechnungen":[],"name":"Tim","altersklasse":{"preis":20,"bezeichnung":"Erwachsen"},"mitgliedsnummer":"5ae8086c-b802-446c-8cde-2eb2b5cc8c3d","status":{"status":"aktiv"}}]
 }

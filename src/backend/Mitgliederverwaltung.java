@@ -45,9 +45,9 @@ public class Mitgliederverwaltung {
                 mitglieder.add(
                         new Mitglied(
                                 m.getString("mitgliedsnummer"),
-                                JSONMapper.parseMitgliedsstatus(m.getString("status")),
-                                JSONMapper.parseAltersklasse(m.getString("altersklasse")),
-                                JSONMapper.parseMitgliederantrag(m.getJSONObject("antrag")),
+                                JSONMapper.parseMitgliedsstatus(m.getJSONObject("status")),
+                                JSONMapper.parseAltersklasse(m.getJSONObject("altersklasse")),
+                                JSONMapper.parseMitgliederantrag(m.getJSONObject("mitgliederantrag")),
                                 JSONMapper.parseKuendigung(m.getJSONObject("kuendigung")),
                                 JSONMapper.parseAbonnements(m.getJSONArray("abonnements")),
                                 JSONMapper.parseRechnungen(m.getJSONArray("rechnungen")),
