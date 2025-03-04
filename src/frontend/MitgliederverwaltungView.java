@@ -22,14 +22,14 @@ import javax.swing.table.DefaultTableModel;
  * @author reineckeKarin
  */
 public class MitgliederverwaltungView extends javax.swing.JFrame {
-    List<Mitglied> mitglieder;
-    Mitglied mitglied;
+    List<Mitglied> mitglieder = Mitgliederverwaltung.ladeMitglieder();
     Mitgliederverwaltung verwaltung;
 
     public MitgliederverwaltungView() {
         initComponents();
+        this.setResizable(false);
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         verwaltung = new Mitgliederverwaltung();
-        mitglieder = Mitgliederverwaltung.ladeMitglieder();
 
         Object[][] data = new Object[mitglieder.size()][2];
         String[] columns = new String[]{
@@ -107,7 +107,6 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
         fitnessclubLabel = new javax.swing.JLabel();
         mitgliederScrollPane = new javax.swing.JScrollPane();
         mitgliederTable = new javax.swing.JTable();
-        sucheTextField = new javax.swing.JTextField();
         mitgliederverwaltungLabel = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
@@ -163,8 +162,6 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
         });
         mitgliederScrollPane.setViewportView(mitgliederTable);
 
-        sucheTextField.setText("Suchleiste");
-
         mitgliederverwaltungLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         mitgliederverwaltungLabel.setText("Mitgliederverwaltung");
 
@@ -199,7 +196,6 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
                                 .addGap(10, 31, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(sucheTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(85, 85, 85))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addComponent(fitnessclubLabel)
@@ -216,7 +212,6 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(mitgliederverwaltungLabel)
                                 .addGap(1, 1, 1)
-                                .addComponent(sucheTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(mitgliederScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -285,6 +280,5 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
     private javax.swing.JScrollPane mitgliederScrollPane;
     private javax.swing.JTable mitgliederTable;
     private javax.swing.JLabel mitgliederverwaltungLabel;
-    private javax.swing.JTextField sucheTextField;
     // End of variables declaration
 }
