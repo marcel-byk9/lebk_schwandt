@@ -55,6 +55,7 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
                 int selectedRow = mitgliederTable.getSelectedRow();
                 if (selectedRow != -1) {
                     model.removeRow(selectedRow);
+                    // TODO remove User
                 } else {
                     JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zeile zum Entfernen aus.");
                 }
@@ -62,13 +63,13 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
         });
         contextMenu.add(removeItem);
 
-        JMenuItem editItem = new JMenuItem("Bearbeiten");
+        JMenuItem editItem = new JMenuItem("Properties");
         editItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int selectedRow = mitgliederTable.getSelectedRow();
                 if (selectedRow != -1) {
-                    mitgliederTable.editCellAt(selectedRow, 0);
+                    // TODO open prop window
                 } else {
                     JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zeile zum Bearbeiten aus.");
                 }
