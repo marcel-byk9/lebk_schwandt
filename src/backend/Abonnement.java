@@ -22,6 +22,15 @@ public enum Abonnement {
         this.preis = preis;
     }
 
+    public Abonnement getByBezeichnung(String bezeichnung) {
+        for (Abonnement a : Abonnement.values()) {
+            if (a.getBezeichnung().equals(bezeichnung)) {
+                return a;
+            }
+        }
+        return null;
+    }
+
     public String getBezeichnung() {
         return this.bezeichnung;
     }
