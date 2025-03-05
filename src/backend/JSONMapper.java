@@ -1,6 +1,7 @@
 package backend;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -45,7 +46,12 @@ public class JSONMapper {
     public static List<Abonnement> parseAbonnements(JSONArray arr) {
         ArrayList<Abonnement> abonnements = new ArrayList<>();
         for (int i = 0; i < arr.length(); ++i) {
-            abonnements.add(parseAbonnement(arr.getJSONObject(i)));
+            try {
+                Abonnement abo = parseAbonnement(arr.getJSONObject(i));
+                abonnements.add(abo);
+            } catch (JSONException e) {
+                System.out.println("Keine Abonnements ausgewählt");
+            }
         }
         return abonnements;
     }
