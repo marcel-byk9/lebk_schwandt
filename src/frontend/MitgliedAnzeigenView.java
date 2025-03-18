@@ -30,6 +30,7 @@ public class MitgliedAnzeigenView extends JFrame {
         setContentPane(pContent);
         pack();
 
+        lName.setText(mitglied.getName());
         tfMitgliedsnummer.setText(mitglied.getMitgliedsnummer());
         tfStatus.setText(mitglied.getStatus().getStatus());
         tfAltersklasse.setText(mitglied.getAltersklasse().getBezeichnung());
