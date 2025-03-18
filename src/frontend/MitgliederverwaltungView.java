@@ -3,12 +3,8 @@ package frontend;
 import backend.Mitglied;
 import backend.Mitgliederverwaltung;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -68,7 +64,8 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
         editItem.addActionListener(e -> {
             int selectedRow = mitgliederTable.getSelectedRow();
             if (selectedRow != -1) {
-                // TODO open prop window
+                Mitglied zuBearbeiten = verwaltung.getMitglieder().get(selectedRow);
+                SwingUtilities.invokeLater(() -> new MitgliedAnzeigenView(zuBearbeiten).setVisible(true));
             } else {
                 JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zeile zum Bearbeiten aus.");
             }
@@ -159,18 +156,10 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
         mitgliederverwaltungLabel.setText("Mitgliederverwaltung");
 
         closeButton.setText("Beenden");
-        closeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeButtonActionPerformed(evt);
-            }
-        });
+        closeButton.addActionListener(this::closeButtonActionPerformed);
 
         addButton.setText("Mitglied Hinzufügen");
-        addButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButtonActionPerformed(evt);
-            }
-        });
+        addButton.addActionListener(this::addButtonActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -257,12 +246,7 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MitgliederverwaltungView().setVisible(true);
-            }
-        });
-
+        SwingUtilities.invokeLater(() -> new MitgliederverwaltungView().setVisible(true));
     }
 
     // Variables declaration - do not modify

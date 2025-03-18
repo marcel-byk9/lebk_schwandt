@@ -17,6 +17,15 @@ public class Mitgliederantrag extends Datei {
         this.mitgliedsnummer = mitgliedsnummer;
     }
 
+    @Override
+    public String toString() {
+        return "Antragsnummer: " + mitgliederantragsnummer
+                + "\nName: " + name
+                + "\nGeburtsdatum: " + geburtsdatum
+                + "\nMitgliedsstatus: " + mitgliedsstatus
+                + "\nMitgliedsnummer: " + mitgliedsnummer;
+    }
+
     public String getMitgliederantragsnummer() {
         return mitgliederantragsnummer;
     }

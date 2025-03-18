@@ -37,6 +37,7 @@ public class Kuendigung extends Datei {
         this.kuendigungsnummer = kuendigungsnummer;
     }
 
+    @Override
     public String toString() {
         return "Mitgliedsnummer: " + this.mitgliedsnummer
                 + "\nKündigungsdatum: " + this.kuendigungsDatum
