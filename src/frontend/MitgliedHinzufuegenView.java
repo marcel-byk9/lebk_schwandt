@@ -5,7 +5,6 @@ import backend.*;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -290,7 +289,7 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
             }
         }
 
-        Mitgliederverwaltung.MitgliedHinzufuegen(mitgliedsstatus, altersklasse, null, abonnements,
+        Mitgliederverwaltung.fuegeMitgliedHinzu(mitgliedsstatus, altersklasse, null, abonnements,
                 new ArrayList<Rechnung>(), nameTextField.getText(), geburtsdatumTextField.getText());
 
         MitgliederverwaltungView mitgliederverwaltungFenster = new MitgliederverwaltungView();

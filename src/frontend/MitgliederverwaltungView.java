@@ -54,7 +54,11 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 int selectedRow = mitgliederTable.getSelectedRow();
                 if (selectedRow != -1) {
-                    model.removeRow(selectedRow);
+                    Mitglied zuLoeschen = Mitgliederverwaltung.getMitglieder().get(selectedRow);
+                    if (JOptionPane.showConfirmDialog(null, "Sind Sie sicher, dass Sie " + zuLoeschen.getName() + " entgültig löschen wollen?") == JOptionPane.YES_OPTION) {
+                        Mitgliederverwaltung.entferneMitglied(zuLoeschen.getMitgliedsnummer());
+                        model.removeRow(selectedRow);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zeile zum Entfernen aus.");
                 }

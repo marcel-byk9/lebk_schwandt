@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 public class Mitgliederverwaltung {
     private static final String JSONPFAD =
-            "C:\\Users\\timsa\\IdeaProjects\\lebk_schwandt\\src\\backend\\Mitglieder.json";
+            "C:\\Users\\marce\\IdeaProjects\\git\\lebk_schwandt\\src\\backend\\resources\\Mitglieder.json";
 
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
     private static List<Mitglied> mitglieder;
@@ -65,8 +65,8 @@ public class Mitgliederverwaltung {
         return mitglieder;
     }
 
-    public static void MitgliedHinzufuegen(Mitgliedsstatus mitgliedsstatus, Altersklasse altersklasse, Kuendigung kuendigung,
-                                           List<Abonnement> abonnements,ArrayList<Rechnung> rechnungen, String name, String geburtstag){
+    public static void fuegeMitgliedHinzu(Mitgliedsstatus mitgliedsstatus, Altersklasse altersklasse, Kuendigung kuendigung,
+                                          List<Abonnement> abonnements, ArrayList<Rechnung> rechnungen, String name, String geburtstag){
         var mitgliedsNummer = UUID.randomUUID().toString();
         var mitgliedsAntragsNummer = UUID.randomUUID().toString();
 
@@ -78,6 +78,11 @@ public class Mitgliederverwaltung {
 
         mitglieder.add(mitglied);
 
+        Mitgliederverwaltung.speichereDaten();
+    }
+
+    public static void entferneMitglied(String mitgliedsNummer) {
+        mitglieder.removeIf(m -> m.getMitgliedsnummer().equals(mitgliedsNummer));
         Mitgliederverwaltung.speichereDaten();
     }
 
@@ -122,5 +127,9 @@ public class Mitgliederverwaltung {
                 "Kuendigung"
         );
         mitglied.setKuendigung(kuendigung);
+    }
+
+    public static List<Mitglied> getMitglieder() {
+        return mitglieder;
     }
 }
