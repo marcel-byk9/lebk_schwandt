@@ -22,23 +22,24 @@ import javax.swing.table.DefaultTableModel;
  * @author reineckeKarin
  */
 public class MitgliederverwaltungView extends javax.swing.JFrame {
-    List<Mitglied> mitglieder = Mitgliederverwaltung.ladeMitglieder();
-    Mitgliederverwaltung verwaltung;
+    private final Mitgliederverwaltung verwaltung;
 
     public MitgliederverwaltungView() {
         initComponents();
         this.setResizable(false);
         this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        verwaltung = new Mitgliederverwaltung();
 
-        Object[][] data = new Object[mitglieder.size()][2];
+        verwaltung = new Mitgliederverwaltung("C:\\Users\\marce\\IdeaProjects\\git\\lebk_schwandt\\src\\backend\\resources\\Mitglieder.json");
+
+
+        Object[][] data = new Object[verwaltung.getMitglieder().size()][2];
         String[] columns = new String[]{
                 "Mitglied", "Mitglied seit"
         };
 
-        for (int i = 0; i < mitglieder.size(); i++) {
-            data[i][0] = mitglieder.get(i).getName();
-            var antrag = mitglieder.get(i).getMitgliederantrag().getDatum();
+        for (int i = 0; i < verwaltung.getMitglieder().size(); i++) {
+            data[i][0] = verwaltung.getMitglieder().get(i).getName();
+            var antrag = verwaltung.getMitglieder().get(i).getMitgliederantrag().getDatum();
             data[i][1] = antrag;
         }
 
@@ -49,33 +50,27 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
         JPopupMenu contextMenu = new JPopupMenu();
 
         JMenuItem removeItem = new JMenuItem("Entfernen");
-        removeItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int selectedRow = mitgliederTable.getSelectedRow();
-                if (selectedRow != -1) {
-                    Mitglied zuLoeschen = Mitgliederverwaltung.getMitglieder().get(selectedRow);
-                    if (JOptionPane.showConfirmDialog(null, "Sind Sie sicher, dass Sie " + zuLoeschen.getName() + " entgültig löschen wollen?") == JOptionPane.YES_OPTION) {
-                        Mitgliederverwaltung.entferneMitglied(zuLoeschen.getMitgliedsnummer());
-                        model.removeRow(selectedRow);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zeile zum Entfernen aus.");
+        removeItem.addActionListener(e -> {
+            int selectedRow = mitgliederTable.getSelectedRow();
+            if (selectedRow != -1) {
+                Mitglied zuLoeschen = verwaltung.getMitglieder().get(selectedRow);
+                if (JOptionPane.showConfirmDialog(null, "Sind Sie sicher, dass Sie " + zuLoeschen.getName() + " entgültig löschen wollen?") == JOptionPane.YES_OPTION) {
+                    verwaltung.entferneMitglied(zuLoeschen.getMitgliedsnummer());
+                    model.removeRow(selectedRow);
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zeile zum Entfernen aus.");
             }
         });
         contextMenu.add(removeItem);
 
         JMenuItem editItem = new JMenuItem("Properties");
-        editItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int selectedRow = mitgliederTable.getSelectedRow();
-                if (selectedRow != -1) {
-                    // TODO open prop window
-                } else {
-                    JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zeile zum Bearbeiten aus.");
-                }
+        editItem.addActionListener(e -> {
+            int selectedRow = mitgliederTable.getSelectedRow();
+            if (selectedRow != -1) {
+                // TODO open prop window
+            } else {
+                JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zeile zum Bearbeiten aus.");
             }
         });
         contextMenu.add(editItem);
@@ -92,12 +87,6 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
             }
         });
     }
-
-    public void addMitglied(Mitglied mitglied) {
-        mitglieder.add(mitglied);
-        // TODO hier noch speichern!!!!!
-    }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -229,22 +218,21 @@ public class MitgliederverwaltungView extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
-
-        MitgliedHinzufuegenView mitgliedFenster = new MitgliedHinzufuegenView();
+        MitgliedHinzufuegenView mitgliedFenster = new MitgliedHinzufuegenView(verwaltung);
         mitgliedFenster.setVisible(true);
         this.setVisible(false);
     }
 
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        Mitgliederverwaltung.speichereDaten();
+        verwaltung.speichereDaten();
         dispose();
     }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

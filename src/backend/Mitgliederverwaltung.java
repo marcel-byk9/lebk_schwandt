@@ -12,17 +12,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Mitgliederverwaltung {
-    private static final String JSONPFAD =
-            "C:\\Users\\marce\\IdeaProjects\\git\\lebk_schwandt\\src\\backend\\resources\\Mitglieder.json";
+    private final String JSONPFAD;
 
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
-    private static List<Mitglied> mitglieder;
+    private List<Mitglied> mitglieder;
 
-    public Mitgliederverwaltung() {
+    public Mitgliederverwaltung(String jsonpfad) {
+        JSONPFAD = jsonpfad;
         mitglieder = ladeMitglieder();
     }
 
-    public static List<Mitglied> ladeMitglieder() {
+    private List<Mitglied> ladeMitglieder() {
         ArrayList<Mitglied> mitglieder = new ArrayList<>();
         try {
             File json_mitglieder = new File(JSONPFAD);
@@ -65,7 +65,7 @@ public class Mitgliederverwaltung {
         return mitglieder;
     }
 
-    public static void fuegeMitgliedHinzu(Mitgliedsstatus mitgliedsstatus, Altersklasse altersklasse, Kuendigung kuendigung,
+    public void fuegeMitgliedHinzu(Mitgliedsstatus mitgliedsstatus, Altersklasse altersklasse, Kuendigung kuendigung,
                                           List<Abonnement> abonnements, ArrayList<Rechnung> rechnungen, String name, String geburtstag){
         var mitgliedsNummer = UUID.randomUUID().toString();
         var mitgliedsAntragsNummer = UUID.randomUUID().toString();
@@ -78,15 +78,15 @@ public class Mitgliederverwaltung {
 
         mitglieder.add(mitglied);
 
-        Mitgliederverwaltung.speichereDaten();
+        speichereDaten();
     }
 
-    public static void entferneMitglied(String mitgliedsNummer) {
+    public void entferneMitglied(String mitgliedsNummer) {
         mitglieder.removeIf(m -> m.getMitgliedsnummer().equals(mitgliedsNummer));
-        Mitgliederverwaltung.speichereDaten();
+        speichereDaten();
     }
 
-    public static void speichereDaten() {
+    public void speichereDaten() {
         File json_mitglieder = new File(JSONPFAD);
         JSONArray arr = new JSONArray(mitglieder);
         try {
@@ -121,15 +121,15 @@ public class Mitgliederverwaltung {
         UUID kuendigungsNummer = UUID.randomUUID();
         Kuendigung kuendigung = new Kuendigung(
                 mitglied.getMitgliedsnummer(),
-                LocalDate.now().format(this.formatter).toString(),
+                LocalDate.now().format(this.formatter),
                 kuendigungsNummer.toString(),
-                LocalDate.now().format(this.formatter).toString(),
+                LocalDate.now().format(this.formatter),
                 "Kuendigung"
         );
         mitglied.setKuendigung(kuendigung);
     }
 
-    public static List<Mitglied> getMitglieder() {
+    public List<Mitglied> getMitglieder() {
         return mitglieder;
     }
 }

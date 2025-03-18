@@ -17,16 +17,16 @@ import java.util.List;
  * @author reineckeKarin
  */
 public class MitgliedHinzufuegenView extends javax.swing.JFrame {
-    private Mitgliederverwaltung mitgliederverwaltung;
-    String mitgliedsnummer;
-    Mitglied person;
+    private final Mitgliederverwaltung verwaltung;
     DefaultListModel<String> abonnementModel;
 
-    public MitgliedHinzufuegenView() {
+    public MitgliedHinzufuegenView(Mitgliederverwaltung verwaltung) {
         initComponents();
         this.setSize(700,550);
         this.setResizable(false);
         this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        this.verwaltung = verwaltung;
 
         abonnementModel = new DefaultListModel<>();
         for(Abonnement abos: Abonnement.values()){
@@ -289,7 +289,7 @@ public class MitgliedHinzufuegenView extends javax.swing.JFrame {
             }
         }
 
-        Mitgliederverwaltung.fuegeMitgliedHinzu(mitgliedsstatus, altersklasse, null, abonnements,
+        verwaltung.fuegeMitgliedHinzu(mitgliedsstatus, altersklasse, null, abonnements,
                 new ArrayList<Rechnung>(), nameTextField.getText(), geburtsdatumTextField.getText());
 
         MitgliederverwaltungView mitgliederverwaltungFenster = new MitgliederverwaltungView();
