@@ -26,7 +26,6 @@ public class MitgliedAnzeigenView extends JFrame {
 
     public MitgliedAnzeigenView(Mitglied mitglied) {
         setTitle("Mitglied anzeigen");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(pContent);
         pack();
 

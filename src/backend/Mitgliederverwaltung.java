@@ -15,7 +15,7 @@ public class Mitgliederverwaltung {
     private final String JSONPFAD;
 
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
-    private List<Mitglied> mitglieder;
+    private final List<Mitglied> mitglieder;
 
     public Mitgliederverwaltung(String jsonpfad) {
         JSONPFAD = jsonpfad;
@@ -53,8 +53,8 @@ public class Mitgliederverwaltung {
 
                 try {
                     mit.setKuendigung(JSONMapper.parseKuendigung(m.getJSONObject("kuendigung")));
-                }catch (JSONException e){
-                    System.out.println("Keine Kuendigung gefunden");
+                } catch (JSONException e){
+                    System.out.println("INFO: Keine Kuendigung gefunden");
                 }
 
                 mitglieder.add(mit);

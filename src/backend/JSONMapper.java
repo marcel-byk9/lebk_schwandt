@@ -12,12 +12,12 @@ public class JSONMapper {
     }
 
     public static Mitgliedsstatus parseMitgliedsstatus(JSONObject obj) {
-        var str = obj.getString("status");
+        String str = obj.getString("status");
         return Mitgliedsstatus.valueOf(str.toUpperCase());
     }
 
     public static Altersklasse parseAltersklasse(JSONObject obj) {
-        var str = obj.getString("bezeichnung");
+        String str = obj.getString("bezeichnung");
         return Altersklasse.valueOf(str.toUpperCase());
     }
 
